@@ -1,0 +1,46 @@
+<html>
+<head>
+	<title>畫布</title>
+	<script type="text/javascript">
+		var canvas;
+		var context;
+		var isPant = false;
+		window.onload =function(){
+			canvas = document.getElementById("mycanvas");
+			context = canvas.getContext("2d");
+		}
+		function mdh(e){          //當滑鼠按下
+			var x =e.clientX;
+			var y =e.clientY;
+			context.beginPath();
+			context.lineWidth = 12;
+			context.strokeStyle = "white";
+			context.moveTo(x, y);
+			isPant = true;
+		}
+		function mmh(e){          //當滑鼠移動
+			if (isPant) {
+				var x = e.clientX;
+				var y = e.clientY;
+				context.lineTo(x,y);
+				context.stroke();
+			}
+		}
+		function muh(e){          //當滑鼠放開
+			isPant = false;
+		}
+		function clean(e){
+			context.clearRect(0,0,canvas.width,canvas.height);
+		}	
+	</script>
+</head>
+<body>
+<canvas id="mycanvas" width="900" height="900";
+        onmousedown="mdh(event)"
+        onmousemove="mmh(event)" 
+        onmouseup="muh(event)"
+        style="cursor: auto; background: black"></canvas>
+<hr>
+<button onclick="clean()" style="width: 200px">清除</button>        
+</body>
+</html>

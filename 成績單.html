@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>chart</title>
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js">
+	</script>
+</head>
+<body>
+<div id="chartc" style="height: 400px; width: 80%; ">
+</div>
+<<script type="text/javascript">
+	window.onload = function() {
+		var chart = new CanvasJS.Chart("chartc",{
+			theme:"dark2",
+			animationEnabled: false,
+			title:{
+				text: "班上同學成績"
+			},
+			data:[
+            {
+            	type:"line",
+            	dataPoints: [
+            		{lable:"小明", y: 20},
+            		{lable:"小華", y: 50},
+            		{lable:"小佑", y: 90},
+            		{lable:"小花", y: 30},
+            		{lable:"老師", y: 0}
+            	]
+            }
+			]
+		});
+		chart.render();
+	}
+</script>
+</body>
+</html>
